@@ -7,7 +7,7 @@ import com.alexrnv.money.entity.Account;
  */
 public interface AccountDao {
     Account find(String id);
-    boolean save(Account account);
-    boolean delete(Account account);
-    boolean update(Account account);
+    void create(Account account) throws ExecutionException;
+    boolean delete(String id) throws ExecutionException;
+    boolean update(Account account) throws ExecutionException;
 }

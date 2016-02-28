@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 /**
  * @author Alex
  */
+@Entity
+@Table(name = "Customer")
 public class Account {
     private String id;
     private BigDecimal amount;
