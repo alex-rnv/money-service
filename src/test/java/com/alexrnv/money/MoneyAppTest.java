@@ -2,6 +2,7 @@ package com.alexrnv.money;
 
 import com.alexrnv.money.config.ApplicationConfig;
 import com.alexrnv.money.entity.Account;
+import com.owlike.genson.Genson;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -23,6 +24,7 @@ public class MoneyAppTest extends JerseyTest {
         return new ApplicationConfig();
     }
 
+    private Genson genson = new Genson();
 
     public Response createAccount(String id, String amount) {
         return target("account/create")
@@ -42,11 +44,12 @@ public class MoneyAppTest extends JerseyTest {
     }
 
     public Account find(String id) {
-        return target("account/find")
+        String string = target("account/find")
                 .queryParam("id", id)
                 .request()
                 .get(Response.class)
-                .readEntity(Account.class);
+                .readEntity(String.class);
+         return genson.deserialize(string, Account.class);
     }
 
 

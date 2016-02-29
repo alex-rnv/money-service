@@ -6,6 +6,7 @@ import com.alexrnv.money.service.AccountService;
 import com.alexrnv.money.service.MoneyService;
 import com.alexrnv.money.service.RDBAccountServiceImpl;
 import com.alexrnv.money.service.RDBMoneyServiceImpl;
+import com.owlike.genson.Genson;
 import org.glassfish.hk2.api.Factory;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 
@@ -37,6 +38,7 @@ public class ApplicationBinder extends AbstractBinder implements Factory<EntityM
         bind(RDBAccountDaoImpl.class).to(AccountDao.class).in(Singleton.class);
         bind(RDBAccountServiceImpl.class).to(AccountService.class).in(Singleton.class);
         bind(RDBMoneyServiceImpl.class).to(MoneyService.class).in(Singleton.class);
+        bind(Genson.class).to(Genson.class).in(Singleton.class);
         bindFactory(this).to(EntityManager.class).in(Singleton.class);
     }
 

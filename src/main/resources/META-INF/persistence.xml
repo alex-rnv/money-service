@@ -9,8 +9,8 @@
 
         <properties>
             <!-- Provider-specific connection properties -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:exampleDB;create=true"/>
-            <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:moneyDB"/>
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
             <property name="javax.persistence.jdbc.user" value=""/>
             <property name="javax.persistence.jdbc.password" value=""/>
 
@@ -18,7 +18,7 @@
             <property name="javax.persistence.schema-generation.create-source" value="script"/>
             <property name="javax.persistence.schema-generation.create-script-source" value="META-INF/create-script.sql"/>
 
-            <property name="eclipseink.logging.level" value="INFO"/>
+            <property name="eclipseink.logging.level" value="DEBUG"/>
 
         </properties>
 

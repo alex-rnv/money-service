@@ -3,13 +3,13 @@ package com.alexrnv.money.controller;
 import com.alexrnv.money.entity.Account;
 import com.alexrnv.money.service.AccountService;
 import com.alexrnv.money.service.ServiceException;
+import com.owlike.genson.Genson;
 import org.slf4j.Logger;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
 import java.math.BigDecimal;
 
 import static com.alexrnv.money.controller.ControllerUtil.*;
@@ -24,9 +24,11 @@ public class AccountController {
 
     private static final Logger LOG = getLogger(AccountController.class);
 
-
     @Inject
     private AccountService accountService;
+
+    @Inject
+    private Genson genson;
 
     @GET
     @Path(value = "create")
@@ -54,7 +56,7 @@ public class AccountController {
     @GET
     @Path(value = "find")
     @Produces(MediaType.APPLICATION_JSON)
-    public Account find(@QueryParam(value = "id") String id) {
+    public String find(@QueryParam(value = "id") String id) {
         LOG.info("Get account request received, id: {}", id);
 
         checkID(id);
@@ -65,7 +67,7 @@ public class AccountController {
                 throw new WebApplicationException(
                         Response.status(Response.Status.OK).entity("{}").build());
             }
-            return account;
+            return genson.serialize(account);
         } catch (ServiceException e) {
             LOG.error("", e);
             //no special response formatting for internal service

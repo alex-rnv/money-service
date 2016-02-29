@@ -13,7 +13,7 @@ public class MoneyApp {
     public static void main(String[] args) throws Exception {
         int port = 8080;
         if(args.length > 0) {
-            port = Integer.valueOf(args[0]);
+            port = Integer.parseInt(args[0]);
         }
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
