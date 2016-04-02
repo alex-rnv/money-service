@@ -1,7 +1,7 @@
 # MONEY SERVICE #
 
 Demo REST API implementation for money transfers.    
-Uses Jersey 2.22.* as web server, Jetty 9.2.15.v20160210 as standalone web container, H2 database v. 1.4.191 as data storage layer.  
+Uses Jersey 2.22.* as web server, Jetty 9.2.15.v20160210 as web container, H2 database v. 1.4.191 as data storage layer.  
 
 ### Design Requirements ###
 * Be simple
@@ -21,7 +21,6 @@ Uses Jersey 2.22.* as web server, Jetty 9.2.15.v20160210 as standalone web conta
 There is helper script money-service.sh provided for *nix environments to simplify testing. Just use its functions directly on other OS. 
 
 ```
-#!shell
 git clone https://alex-rnv@bitbucket.org/alex-rnv/money-service.git
 cd money-service
 ./money-service.sh build
