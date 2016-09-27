@@ -1,7 +1,7 @@
 # MONEY SERVICE #
 
 Demo REST API implementation for money transfers.    
-Uses Jersey 2.22.* as web server, Jetty 9.2.15.v20160210 as web container, EcliopseLink & H2 database v. 1.4.191 as persistence layer.  
+Uses Jersey 2.22.* as web server, Jetty 9.2.15.v20160210 as web container, EclipseLink & H2 database v. 1.4.191 as persistence layer.  
 
 ### Design Requirements ###
 * Be simple
